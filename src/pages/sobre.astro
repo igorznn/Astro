@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 const titulopagina = "sobre mim";
 
 const identidade = {
@@ -19,7 +21,18 @@ const habilidades = [
 
 const feliz = true;
 const terminado = true;
+
 const meta = 3;
+
+//const corHabilidade = "navy";
+/*const cornome = "navy";
+const corpais = "navy";*/
+
+const sistemaoperacional = "Linux";
+const quantidade = 3;
+const calcado = "botas";
+const estudante = false;
+
 ---
 
 <html lang="pt-br">
@@ -29,13 +42,34 @@ const meta = 3;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Sobre</title>
+    <!--<style define:vars={{corHabilidade,cornome,corpais}}>
+        h1 {
+          color: purple;
+          font-size: 4rem;
+        }
+        .habilidade {
+          color: green;
+          color: var(--corHabilidade);
+          font-weight: bold;
+        }
+        .pais{
+            color: var(--corpais);
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+            font-weight: bold;
+        }
+        .nome{
+            color: var(--cornome);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+        }
+      </style>-->
   </head>
   <body>
     <h3>{titulopagina}</h3>
     <p>Aqui estão alguns fatos sobre mim:</p>
     <ul>
-      <li>Meu nome é {identidade.nome}.</li>
-      <li>
+      <li class="nome">Meu nome é {identidade.nome}.</li>
+      <li class="pais">
         Eu moro no {identidade.pais} e eu trabalho como um {
           identidade.ocupacao
         }.
@@ -51,12 +85,29 @@ const meta = 3;
     </ul>
     <p>Minhas habilidades são:</p>
     <ul>
-      {habilidades.map((habilidade) => <li>{habilidade}</li>)}
+      {habilidades.map((habilidade) => <li class="habilidade">{habilidade}</li>)}
     </ul>
     {feliz && <p>Estou feliz em estar aprendendo Astro!</p>}
 
-{terminado && <p>Eu terminei esse tutorial!</p>}
+    {terminado && <p>Eu terminei esse tutorial!</p>}
 
-{meta === 3 ? <p>Minha meta é terminar em 3 dias.</p> : <p>Minha meta não é em 3 dias.</p>}
+    {
+      meta === 3 ? (
+        <p>Minha meta é terminar em 3 dias.</p>
+      ) : (
+        <p>Minha meta não é em 3 dias.</p>
+      )
+    }
+
+    <p>{sistemaoperacional}</p>
+    {estudante && <p>Ainda estou na escola.</p>}
+    <p>Eu tenho {quantidade + 8} pares de {calcado}</p>
+    {
+      sistemaoperacional === "Linux" ? (
+        <p>Estou utilizando um Mac.</p>
+      ) : (
+        <p>Não estou utilizando um Mac.</p>
+      )
+    }
   </body>
 </html>
