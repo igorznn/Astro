@@ -1,8 +1,11 @@
 ---
 import '../styles/global.css';
-
+import  Cabecalho  from "../components/cabecalho.astro";
 const titulopagina = "sobre mim";
-
+import Rodape from '/Users/User/estudos em geral/astro/tutorial/src/components/rodape.astro';
+import Sociall from '/Users/User/estudos em geral/astro/tutorial/src/components/social.astro';
+import LayoutBase from '../layouts/LayoutBase.astro';
+const tituloPagina = "Página Inicial";
 const identidade = {
   nome: "Igor",
   pais: "Brasil",
@@ -65,6 +68,9 @@ const estudante = false;
       </style>-->
   </head>
   <body>
+    <LayoutBase tituloPagina={tituloPagina}>
+      <h3>O subtítulo incrível do meu sobre/h3>
+    </LayoutBase>
     <h3>{titulopagina}</h3>
     <p>Aqui estão alguns fatos sobre mim:</p>
     <ul>
@@ -109,5 +115,10 @@ const estudante = false;
         <p>Não estou utilizando um Mac.</p>
       )
     }
+    
+   
+    <script>
+      import "../scripts/menu.js"
+    </script>
   </body>
 </html>

@@ -1,0 +1,24 @@
+---
+import Cabecalho from '../components/cabecalho.astro';
+import Rodape from '../components/rodape.astro';
+import '../styles/global.css';
+const { tituloPagina } = Astro.props;
+---
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{tituloPagina}</title>
+  </head>
+  <body>
+    <Cabecalho />
+    <h1>{tituloPagina}</h1>
+    <slot /> <!--te permite injetar (ou “encaixar”) conteúdo filho escrito entre as tags de abertura e fechamento <Componente></Componente> em qualquer arquivo Componente.astro. -->
+    <Rodape />
+    <script>
+      import "../scripts/menu.js";
+    </script>
+  </body>
+</html>
